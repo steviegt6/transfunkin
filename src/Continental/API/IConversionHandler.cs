@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Continental.API
 {
@@ -85,5 +86,12 @@ namespace Continental.API
         ///     While you will often use <see cref="IConversionHandler{TFrom,TTo}"/>, you can use <see cref="IConversionHandler"/> to provide custom, untyped logic here.
         /// </remarks>
         bool ShouldUseHandler(in IConvertableJson from, in IConvertableJson to);
+
+        /// <summary>
+        ///     Handles converting the given collection of convertable parameters.
+        /// </summary>
+        /// <param name="input">The parameters to convert</param>
+        /// <returns>The converted parameters.</returns>
+        List<IConvertableParameter> Convert(List<IConvertableParameter> input);
     }
 }
