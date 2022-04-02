@@ -1,9 +1,8 @@
 ﻿using System;
 using System.IO;
-using Continental.API;
 using Continental.Exceptions;
 
-namespace Continental.Impl
+namespace Continental.API.Impl
 {
     /// <summary>
     ///     Provides a <see cref="Stream"/> passed in the constructor.

@@ -1,8 +1,7 @@
 ﻿using System;
 using System.IO;
-using Continental.API;
 
-namespace Continental.Impl
+namespace Continental.API.Impl
 {
     /// <summary>
     ///     Provides a <see cref="Stream"/> given a <see cref="FileInfo"/> instance or path.
