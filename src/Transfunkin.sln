@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Continental", "Continental\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Continental.Tests", "Continental.Tests\Continental.Tests.csproj", "{91538177-8F2C-4836-AD77-9938B070EEF9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transfunkin", "Transfunkin\Transfunkin.csproj", "{BC73C856-1A38-4627-806A-2BB4FCD5A271}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{91538177-8F2C-4836-AD77-9938B070EEF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91538177-8F2C-4836-AD77-9938B070EEF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91538177-8F2C-4836-AD77-9938B070EEF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC73C856-1A38-4627-806A-2BB4FCD5A271}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC73C856-1A38-4627-806A-2BB4FCD5A271}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC73C856-1A38-4627-806A-2BB4FCD5A271}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC73C856-1A38-4627-806A-2BB4FCD5A271}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

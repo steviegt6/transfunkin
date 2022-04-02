@@ -113,7 +113,7 @@ namespace Continental.Tests
             };
             IConvertableJson toBar = new BarJson();
             converter.Convert(fromFoo, ref toBar);
-            Console.WriteLine(toBar);
+            AssetEqualsPrint(toBar.ToString()!, "Hi: HI THERE, Hello: WELL HELLO, What: 5");
 
             BarJson fromBar = new()
             {
@@ -123,11 +123,18 @@ namespace Continental.Tests
             };
             IConvertableJson toFoo = new FooJson();
             converter.Convert(fromBar, ref toFoo);
-            Console.WriteLine(toFoo);
+            AssetEqualsPrint(toFoo.ToString()!, "Hi: HI HI HI, Hello: HELLO HELLO, What: 10");
+
         }
 
         public static T GetParam<T>(IEnumerable<IConvertableParameter> parameters, string name) =>
             (T?) parameters.First(x => x.ParameterName == name && x.Type.IsOrIsSubclassOf(typeof(T))).Value ??
             throw new Exception();
+
+        public static void AssetEqualsPrint(string one, string two)
+        {
+            Console.WriteLine($"Asserting: \"{one}\" == \"{two}\"");
+            Assert.AreEqual(one, two);
+        }
     }
 }
