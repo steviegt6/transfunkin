@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Continental.Extensions;
 
 namespace Continental.API
 {
@@ -21,17 +22,7 @@ namespace Continental.API
         /// </summary>
         new Type ToType => typeof(TTo);
 
-        /// <summary>
-        ///     The instance of the object to convert from.
-        /// </summary>
-        new TFrom FromObject { get; }
-
-        /// <summary>
-        ///     The instance of the object to convert to.
-        /// </summary>
-        new TTo ToObject { get; }
-
-        /// <summary>
+        /*/// <summary>
         ///     Whether this handler should be used.
         /// </summary>
         /// <param name="from">The type to convert from.</param>
@@ -40,15 +31,15 @@ namespace Continental.API
         /// <remarks>
         ///     While you will often use <see cref="IConversionHandler{TFrom,TTo}"/>, you can use <see cref="IConversionHandler"/> to provide custom, untyped logic here.
         /// </remarks>
-        bool ShouldUseHandler(TFrom from, TTo to);
+        bool ShouldUseHandler(TFrom from, TTo to);*/
 
-        IConvertableJson IConversionHandler.FromObject => FromObject;
-
-        IConvertableJson IConversionHandler.ToObject => ToObject;
+        Type IConversionHandler.FromType => FromType;
+        
+        Type IConversionHandler.ToType => ToType;
 
         // Handle this ourselves. Users should implement IConversionHandler for custom logic here.
         bool IConversionHandler.ShouldUseHandler(in IConvertableJson from, in IConvertableJson to) =>
-            ShouldUseHandler((TFrom) from, (TTo) to);
+            from.GetType().IsOrIsSubclassOf(typeof(TFrom)) && to.GetType().IsOrIsSubclassOf(typeof(TTo));
     }
 
     /// <summary>
@@ -65,16 +56,6 @@ namespace Continental.API
         ///     The type to convert to.
         /// </summary>
         Type ToType { get; }
-
-        /// <summary>
-        ///     The instance of the object to convert from.
-        /// </summary>
-        IConvertableJson FromObject { get; }
-
-        /// <summary>
-        ///     The instance of the object to convert to.
-        /// </summary>
-        IConvertableJson ToObject { get; }
 
         /// <summary>
         ///     Whether this handler should be used.

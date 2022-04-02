@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Continental.API
 {
@@ -18,5 +19,14 @@ namespace Continental.API
         /// </summary>
         /// <param name="parameters">The parameters to use.</param>
         void Convert(IReadOnlyCollection<IConvertableParameter> parameters);
+
+        /// <summary>
+        ///     Grabs the parameter of a certain name, expecting to follow the given type.
+        /// </summary>
+        /// <param name="parameters">The parameters to search.</param>
+        /// <param name="name">The name of the parameter we want.</param>
+        /// <typeparam name="T">The parameter's type.</typeparam>
+        /// <returns>The parameter, if found.</returns>
+        T GetParameter<T>(IReadOnlyCollection<IConvertableParameter> parameters, string name);
     }
 }

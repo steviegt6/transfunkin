@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Continental.Extensions;
 
 namespace Continental.API.Impl
 {
@@ -19,7 +20,7 @@ namespace Continental.API.Impl
             IConvertableJson to
         ) => ConversionHandlers.Where(
             // Return all types that use types subclassing the from and to inputs.
-            handler => handler.FromType.IsSubclassOf(from.GetType()) && handler.ToType.IsSubclassOf(to.GetType())
+            handler => handler.FromType.IsOrIsSubclassOf(from.GetType()) && handler.ToType.IsOrIsSubclassOf(to.GetType())
         );
 
         public virtual void Convert(in IConvertableJson from, ref IConvertableJson to)
