@@ -7,6 +7,10 @@ namespace Continental.API
     /// </summary>
     public interface IConvertableJson
     {
-        bool Convert(IReadOnlyCollection<ConvertableParameter<>>)
+        /// <summary>
+        ///     Handles converting a collection of <see cref="IConvertableParameter"/>s. <see cref="IConversionHandler"/>s deal with transferring data to these parameters. 
+        /// </summary>
+        /// <param name="parameters">The parameters to use.</param>
+        void Convert(IReadOnlyCollection<IConvertableParameter> parameters);
     }
 }
