@@ -46,7 +46,7 @@ namespace Continental.API
         IConvertableJson IConversionHandler.ToObject => ToObject;
 
         // Handle this ourselves. Users should implement IConversionHandler for custom logic here.
-        bool IConversionHandler.ShouldUseHandler(IConvertableJson from, IConvertableJson to) =>
+        bool IConversionHandler.ShouldUseHandler(in IConvertableJson from, in IConvertableJson to) =>
             ShouldUseHandler((TFrom) from, (TTo) to);
     }
 
@@ -84,6 +84,6 @@ namespace Continental.API
         /// <remarks>
         ///     While you will often use <see cref="IConversionHandler{TFrom,TTo}"/>, you can use <see cref="IConversionHandler"/> to provide custom, untyped logic here.
         /// </remarks>
-        bool ShouldUseHandler(IConvertableJson from, IConvertableJson to);
+        bool ShouldUseHandler(in IConvertableJson from, in IConvertableJson to);
     }
 }
