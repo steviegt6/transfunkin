@@ -11,7 +11,6 @@ namespace Continental.Tests
     public static class SimpleJsonConversionTest
     {
         #region Class Definitions
-
         
         public abstract class BaseJson : IConvertableJson
         {
